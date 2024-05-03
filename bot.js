@@ -108,7 +108,7 @@ bot.onText(/Acheter la version pro 🔸/, (msg) => {
 bot.onText(/Démonstration 🔺/, (msg) => {
     const chatId = msg.chat.id;
     const demoMessage = `Pour voir la démonstration, veuillez regarder cette vidéo:\n\n` +
-        `Source : [Vidéo Démo](https://t.me/nociqq/375)`;
+        `Source : [Vidéo Démo](https://t.me/gsgzheh/5)`;
     bot.sendMessage(chatId, demoMessage);
 });
 
