@@ -97,9 +97,9 @@ bot.onText(/Obtenir un compte authentique ✅/, (msg) => {
 });
 
 // Ajout de la logique pour le bouton "Acheter la version pro 🔸"
-bot.onText(/Acheter la version pro 🔸/, (msg) => {
+bot.onText(/contacter l'admis 🔸/, (msg) => {
     const chatId = msg.chat.id;
-    const proMessage = `Pour acheter la version pro, veuillez contacter l'administrateur:\n\n` +
+    const proMessage = `veuillez contacter l'administrateur:\n\n` +
         `Contact: @medatt00`;
     bot.sendMessage(chatId, proMessage);
 });
