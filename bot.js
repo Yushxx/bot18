@@ -8,7 +8,7 @@ const bot = new TelegramBot(token, { polling: true });
 bot.onText(/\/start/, (msg) => {
     const chatId = msg.chat.id;
     const welcomeMessage = `Bienvenue dans le programme hack de solkah. Veuillez joindre ces canaux avant de continuer:\n\n` +
-        `Canal 1: [Rejoindre Canal 1](https://t.me/+QOrhmv1zmfxlOTg8)\n` +
+        `Canal 1: [Rejoindre Canal 1](https://t.me/+xB2ooWeA55s3YWM0)\n` +
         `Canal 2: [Rejoindre Canal 2](https://t.me/+aHbllJv3hrNkOTM0)\n` +
         `Canal 3: [Rejoindre Canal 3](https://t.me/+77mQVHefoaA2NjU0)`;
 
@@ -48,7 +48,7 @@ bot.on('callback_query', async (callbackQuery) => {
                 const replyMarkup = {
                     keyboard: [
                         [{ text: 'Obtenir un compte authentique ✅' }],
-                        [{ text: 'Contactet l\'admis pro 🔸' }],
+                        [{ text: 'Contactet l\'admis pro @medatt00' }],
                         [{ text: 'Démonstration 🔺' }]
                     ],
                     resize_keyboard: true,
