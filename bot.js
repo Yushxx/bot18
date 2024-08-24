@@ -14,10 +14,10 @@ bot.onText(/\/start/, (msg) => {
         reply_markup: {
             inline_keyboard: [
                 [
-                    { text: 'Canal 1', url: 'https://t.me/+xB2ooWeA55s3YWM0' },
+                    { text: 'Canal 1🤑', url: 'https://t.me/+xB2ooWeA55s3YWM0' },
                 ],
                 [
-                    { text: 'Canal 2', url: 'https://t.me/+77mQVHefoaA2NjU0' },
+                    { text: 'Canal 2🚀', url: 'https://t.me/+77mQVHefoaA2NjU0' },
                 ],
                 [
                     { text: 'Check ✅', callback_data: 'check_join' }
@@ -35,29 +35,17 @@ bot.on('callback_query', async (callbackQuery) => {
     const userId = message.chat.id;
 
     if (data === 'check_join') {
-    try {
-        const channels = ['-1001923341484', '-1001594256026', '-1002017559099'];
-        let isMemberOfAllChannels = true;
+        try {
+            const channels = ['-1001923341484', '-1001594256026', '-1002017559099'];
+            let isMemberOfAllChannels = true;
 
-        for (const channel of channels) {
-            const result = await bot.getChatMember(channel, userId);
-            console.log(`Channel: ${channel}, User ID: ${userId}, Status: ${result.status}`);
-            if (!(result.status === 'member' || result.status === 'administrator' || result.status === 'creator')) {
-                isMemberOfAllChannels = false;
-                break;
+            for (const channel of channels) {
+                const result = await bot.getChatMember(channel, userId);
+                if (!(result.status === 'member' || result.status === 'administrator' || result.status === 'creator')) {
+                    isMemberOfAllChannels = false;
+                    break;
+                }
             }
-        }
-
-        if (isMemberOfAllChannels) {
-            // Logique pour les utilisateurs membres de tous les canaux
-        } else {
-            bot.sendMessage(message.chat.id, "Veuillez rejoindre les canaux d'abord.");
-        }
-    } catch (error) {
-        console.error(error);
-        bot.sendMessage(message.chat.id, "Une erreur s'est produite lors de la vérification de l'adhésion.");
-    }
-}
 
             if (isMemberOfAllChannels) {
                 const replyMarkup = {
@@ -103,7 +91,6 @@ bot.on('message', (msg) => {
     });
 });
 
-// Ajout de la logique pour le bouton "Obtenir un compte authentique ✅"
 bot.onText(/Obtenir un compte authentique ✅/, (msg) => {
     const chatId = msg.chat.id;
     const authentiqueMessage = `Pour obtenir un compte authentique, veuillez regarder cette vidéo:\n\n` +
@@ -111,15 +98,13 @@ bot.onText(/Obtenir un compte authentique ✅/, (msg) => {
     bot.sendMessage(chatId, authentiqueMessage);
 });
 
-// Ajout de la logique pour le bouton "Contacter l'admis pro @medatt00"
-bot.onText(/Contacter l\'admis pro @medatt00/, (msg) => {
+bot.onText(/Contacter l'admis pro @medatt00/, (msg) => {
     const chatId = msg.chat.id;
     const proMessage = `Veuillez contacter l'administrateur:\n\n` +
         `Contact: @medatt00`;
     bot.sendMessage(chatId, proMessage);
 });
 
-// Ajout de la logique pour le bouton "Démonstration 🔺"
 bot.onText(/Démonstration 🔺/, (msg) => {
     const chatId = msg.chat.id;
     const demoMessage = `Pour voir la démonstration, veuillez regarder cette vidéo:\n\n` +
@@ -127,14 +112,12 @@ bot.onText(/Démonstration 🔺/, (msg) => {
     bot.sendMessage(chatId, demoMessage);
 });
 
-// Serveur HTTP pour "keep alive"
 const server = http.createServer((req, res) => {
     res.writeHead(200, { 'Content-Type': 'text/plain' });
     res.write("I'm alive");
     res.end();
 });
 
-// Écoutez le port 8080
 server.listen(8080, () => {
     console.log("Keep alive server is running on port 8080");
 });
