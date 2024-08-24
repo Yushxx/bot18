@@ -7,21 +7,29 @@ const bot = new TelegramBot(token, { polling: true });
 
 bot.onText(/\/start/, (msg) => {
     const chatId = msg.chat.id;
-    const welcomeMessage = `Bienvenue dans le programme hack de solkah. Veuillez joindre ces canaux avant de continuer:\n\n` +
-        `Canal 1: [Rejoindre Canal 1](https://t.me/+xB2ooWeA55s3YWM0)\n` +
-        `Canal 2: [Rejoindre Canal 2](https://t.me/+aHbllJv3hrNkOTM0)\n` +
-        `Canal 3: [Rejoindre Canal 3](https://t.me/+77mQVHefoaA2NjU0)`;
+    const welcomeMessage = `Bienvenue dans le programme hack de solkah. Veuillez joindre ces canaux avant de continuer :`;
 
     const opts = {
         parse_mode: 'Markdown',
         reply_markup: {
-            inline_keyboard: [[
-                { text: 'Check ✅', callback_data: 'check_join' }
-            ]]
+            inline_keyboard: [
+                [
+                    { text: 'Canal 1', url: 'https://t.me/+xB2ooWeA55s3YWM0' },
+                ],
+                
+                [
+                    { text: 'Canal 2', url: 'https://t.me/+77mQVHefoaA2NjU0' },
+                ],
+                [
+                    { text: 'Check ✅', callback_data: 'check_join' }
+                ]
+            ]
         }
     };
 
     bot.sendMessage(chatId, welcomeMessage, opts);
+});
+age(chatId, welcomeMessage, opts);
 });
 
 bot.on('callback_query', async (callbackQuery) => {
