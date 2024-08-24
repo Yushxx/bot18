@@ -35,17 +35,29 @@ bot.on('callback_query', async (callbackQuery) => {
     const userId = message.chat.id;
 
     if (data === 'check_join') {
-        try {
-            const channels = ['-1001923341484', '-1001594256026', '-1002017559099'];
-            let isMemberOfAllChannels = true;
+    try {
+        const channels = ['-1001923341484', '-1001594256026', '-1002017559099'];
+        let isMemberOfAllChannels = true;
 
-            for (const channel of channels) {
-                const result = await bot.getChatMember(channel, userId);
-                if (!(result.status === 'member' || result.status === 'administrator' || result.status === 'creator')) {
-                    isMemberOfAllChannels = false;
-                    break;
-                }
+        for (const channel of channels) {
+            const result = await bot.getChatMember(channel, userId);
+            console.log(`Channel: ${channel}, User ID: ${userId}, Status: ${result.status}`);
+            if (!(result.status === 'member' || result.status === 'administrator' || result.status === 'creator')) {
+                isMemberOfAllChannels = false;
+                break;
             }
+        }
+
+        if (isMemberOfAllChannels) {
+            // Logique pour les utilisateurs membres de tous les canaux
+        } else {
+            bot.sendMessage(message.chat.id, "Veuillez rejoindre les canaux d'abord.");
+        }
+    } catch (error) {
+        console.error(error);
+        bot.sendMessage(message.chat.id, "Une erreur s'est produite lors de la vérification de l'adhésion.");
+    }
+}
 
             if (isMemberOfAllChannels) {
                 const replyMarkup = {
