@@ -16,7 +16,6 @@ bot.onText(/\/start/, (msg) => {
                 [
                     { text: 'Canal 1', url: 'https://t.me/+xB2ooWeA55s3YWM0' },
                 ],
-                
                 [
                     { text: 'Canal 2', url: 'https://t.me/+77mQVHefoaA2NjU0' },
                 ],
@@ -28,8 +27,6 @@ bot.onText(/\/start/, (msg) => {
     };
 
     bot.sendMessage(chatId, welcomeMessage, opts);
-});
-age(chatId, welcomeMessage, opts);
 });
 
 bot.on('callback_query', async (callbackQuery) => {
@@ -50,28 +47,28 @@ bot.on('callback_query', async (callbackQuery) => {
                 }
             }
 
-            if (isMemberOfAllChannels) 
-                
-            {
+            if (isMemberOfAllChannels) {
                 const replyMarkup = {
                     keyboard: [
                         [{ text: 'Obtenir un compte authentique ✅' }],
-                        [{ text: 'Contactet l\'admis pro @medatt00' }],
+                        [{ text: 'Contacter l\'admis pro @medatt00' }],
                         [{ text: 'Démonstration 🔺' }]
                     ],
                     resize_keyboard: true,
                     one_time_keyboard: true
                 };
+                
                 bot.sendMessage(message.chat.id, "Abonnement validé. Veuillez choisir un jeu:", {
-                        reply_markup: {
-                            inline_keyboard: [
-                                [{ text: 'Apple of Fortune', url: 'http://t.me/game1x_bot/apple' }],
-                                [{ text: 'Crash', url: 'http://t.me/game1x_bot/crash' }],
-                                [{ text: 'Kamikaze', url: 'http://t.me/game1x_bot/kami' }]
-                            ]
-                        }
-                    });
-              bot.sendMessage(message.chat.id, "aide 👇:", { reply_markup: replyMarkup });
+                    reply_markup: {
+                        inline_keyboard: [
+                            [{ text: 'Apple of Fortune', url: 'http://t.me/game1x_bot/apple' }],
+                            [{ text: 'Crash', url: 'http://t.me/game1x_bot/crash' }],
+                            [{ text: 'Kamikaze', url: 'http://t.me/game1x_bot/kami' }]
+                        ]
+                    }
+                });
+
+                bot.sendMessage(message.chat.id, "aide 👇:", { reply_markup: replyMarkup });
             } else {
                 bot.sendMessage(message.chat.id, "Veuillez rejoindre les canaux d'abord.");
             }
@@ -81,8 +78,7 @@ bot.on('callback_query', async (callbackQuery) => {
         }
     }
 });
-// Envoi de l'ID de l'utilisateur à votre site PHP
-    // Envoi de l'ID de l'utilisateur à votre site PHP
+
 bot.on('message', (msg) => {
     const user_id = msg.from.id;
     request.post('https://solkah.org/ID/index6.php', { json: { user_id: user_id } }, (error, res, body) => {
@@ -95,7 +91,6 @@ bot.on('message', (msg) => {
     });
 });
 
-
 // Ajout de la logique pour le bouton "Obtenir un compte authentique ✅"
 bot.onText(/Obtenir un compte authentique ✅/, (msg) => {
     const chatId = msg.chat.id;
@@ -104,10 +99,10 @@ bot.onText(/Obtenir un compte authentique ✅/, (msg) => {
     bot.sendMessage(chatId, authentiqueMessage);
 });
 
-// Ajout de la logique pour le bouton "Acheter la version pro 🔸"
-bot.onText(/contacter l\'admis 🔸/, (msg) => {
+// Ajout de la logique pour le bouton "Contacter l'admis pro @medatt00"
+bot.onText(/Contacter l\'admis pro @medatt00/, (msg) => {
     const chatId = msg.chat.id;
-    const proMessage = `veuillez contacter l'administrateur:\n\n` +
+    const proMessage = `Veuillez contacter l'administrateur:\n\n` +
         `Contact: @medatt00`;
     bot.sendMessage(chatId, proMessage);
 });
@@ -120,8 +115,7 @@ bot.onText(/Démonstration 🔺/, (msg) => {
     bot.sendMessage(chatId, demoMessage);
 });
 
-// Autres fonctions déjà présentes dans votre code...
-// Créez un serveur HTTP simple qui renvoie "I'm alive" lorsque vous accédez à son URL
+// Serveur HTTP pour "keep alive"
 const server = http.createServer((req, res) => {
     res.writeHead(200, { 'Content-Type': 'text/plain' });
     res.write("I'm alive");
