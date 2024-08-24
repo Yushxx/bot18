@@ -14,7 +14,7 @@ bot.onText(/\/start/, (msg) => {
         reply_markup: {
             inline_keyboard: [
                 [
-                    { text: 'Canal 1🤑', url: 'https://t.me/+xB2ooWeA55s3YWM0' },
+                    { text: 'Canal 1🔗', url: 'https://t.me/+xB2ooWeA55s3YWM0' },
                 ],
                 [
                     { text: 'Canal 2🚀', url: 'https://t.me/+77mQVHefoaA2NjU0' },
@@ -36,7 +36,7 @@ bot.on('callback_query', async (callbackQuery) => {
 
     if (data === 'check_join') {
         try {
-            const channels = ['-1001923341484', '-1001594256026', '-1002017559099'];
+            const channels = ['-1001923341484', '-1002017559099'];
             let isMemberOfAllChannels = true;
 
             for (const channel of channels) {
@@ -51,7 +51,7 @@ bot.on('callback_query', async (callbackQuery) => {
                 const replyMarkup = {
                     keyboard: [
                         [{ text: 'Obtenir un compte authentique ✅' }],
-                        [{ text: 'Contacter l\'admis pro @medatt00' }],
+                        [{ text: 'Support}],
                         [{ text: 'Démonstration 🔺' }]
                     ],
                     resize_keyboard: true,
@@ -98,7 +98,7 @@ bot.onText(/Obtenir un compte authentique ✅/, (msg) => {
     bot.sendMessage(chatId, authentiqueMessage);
 });
 
-bot.onText(/Contacter l'admis pro @medatt00/, (msg) => {
+bot.onText(/Support/, (msg) => {
     const chatId = msg.chat.id;
     const proMessage = `Veuillez contacter l'administrateur:\n\n` +
         `Contact: @medatt00`;
