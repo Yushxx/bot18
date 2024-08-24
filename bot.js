@@ -51,7 +51,7 @@ bot.on('callback_query', async (callbackQuery) => {
                 const replyMarkup = {
                     keyboard: [
                         [{ text: 'Obtenir un compte authentique ✅' }],
-                        [{ text: 'Support}],
+                        [{ text: 'Support'}],
                         [{ text: 'Démonstration 🔺' }]
                     ],
                     resize_keyboard: true,
