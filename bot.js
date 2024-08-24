@@ -99,7 +99,7 @@ bot.onText(/Obtenir un compte authentique ✅/, (msg) => {
 });
 
 bot.onText(/Support/, (msg) => {
-    const chatId = msg.chat.id;
+     const chatId = msg.chat.id;
     const proMessage = `Veuillez contacter l'administrateur:\n\n` +
         `Contact: @medatt00`;
     bot.sendMessage(chatId, proMessage);
